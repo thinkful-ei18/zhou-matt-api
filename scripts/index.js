@@ -3,13 +3,19 @@
 
 $(document).ready(function() {
   shoppingList.bindEventListeners();
-  shoppingList.render();
+  // shoppingList.render();
+
+  api.getItems((items) => {
+    const item = items[0];
+    
+    const updateData = {
+      name: 'Guava',
+      checked: true
+    }
+    api.updateItem(item.id, updateData, () => {
+      console.log('updated!');
+    });
+  });
 });
 
-store.items.push(Item.create('apples'));
-
-api.createItem('pears', ()=> {
-  api.getItems( (items) => {
-    console.log(items)
-  })
-})
+// store.items.push(Item.create('apples'));

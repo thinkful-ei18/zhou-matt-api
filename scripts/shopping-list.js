@@ -60,8 +60,12 @@ const shoppingList = (function(){
       event.preventDefault();
       const newItemName = $('.js-shopping-list-entry').val();
       $('.js-shopping-list-entry').val('');
-      store.addItem(newItemName);
-      render();
+      // store.addItem(newItemName);
+
+      api.createItem(newItemName, (newItem) => {
+        store.addItem(newItem);
+        render();
+      })
     });
   }
   

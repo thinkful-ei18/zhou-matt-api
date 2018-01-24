@@ -8,7 +8,7 @@ const api = (function () {
 
   function createItem(name, callback) {
     const newItem = JSON.stringify(
-      {name: name})
+      {name: name});
     const setting = {
       url:`${BASE_URL}/items`,
       method:'POST',
@@ -20,9 +20,25 @@ const api = (function () {
 
     $.ajax(setting)
   }
+
+  function updateItem(id, updateData, callback) {
+    const newItem = JSON.stringify(updateData);
+    const setting = {
+      url:`${BASE_URL}/items/${id}`,
+      method:'PATCH',
+      dataType:'json',
+      contentType:'application/json',
+      data:newItem,
+      success: callback
+    }
+
+    $.ajax(setting)
+  }
+
   return {
     BASE_URL,
     getItems,
-    createItem
+    createItem,
+    updateItem
   }
 }())
