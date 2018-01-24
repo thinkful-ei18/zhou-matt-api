@@ -2,6 +2,7 @@
 const api = (function () {
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/zhou-matt';
 
+  
   function getItems(callback) {
     $.getJSON(`${BASE_URL}/items`, callback)
   }
