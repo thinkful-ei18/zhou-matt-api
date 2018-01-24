@@ -11,11 +11,11 @@ $(document).ready(function() {
       store.addItem(item)
     })
 
-    //========= update date in local file ======
-    const item = store.items[0];
-    console.log('current name: ' + item.name);
-    store.findAndUpdate(item.id, { name: 'foobar' });
-    console.log('new name:' + item.name);
+    // //========= update date in local file ======
+    // const item = store.items[0];
+    // console.log('current name: ' + item.name);
+    // store.findAndUpdate(item.id, { name: 'foobar' });
+    // console.log('new name:' + item.name);
 
     shoppingList.render()
   });
